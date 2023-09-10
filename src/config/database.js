@@ -12,7 +12,7 @@ export const sequelize = new Sequelize('prueba', 'root', '', {
   export const startDb = async () => {
     try {
       await sequelize.authenticate();
-      // await sequelize.sync({ force: true });
+       //await sequelize.sync({ force: true });
       await sequelize.sync();
       console.log("Connection has been established successfully.");
     } catch (error) {

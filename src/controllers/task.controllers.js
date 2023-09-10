@@ -29,7 +29,49 @@ export const ctrlCreateTask = async (req, res) => {
 }
 
 //controlador para modificar una tarea
-export const ctrlUpdateTask = async (req, res) => {}
+export const ctrlUpdateTask = async (req, res) => {
+    const { id } = req.params
+    try {
+        const task = await TaskModel.findByPk(id);
+
+        if (!task) {
+            return res.status(404).json({
+                message: 'Tarea no encontrada'
+            })
+        }
+
+        await task.update(req.body)
+
+        return res.status(200).json(task)
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            message: 'Error Server'
+        })
+    }
+}
 
 //controlador para eliminar una tarea
-export const ctrlDeleteTask = async (req, res) => {}
+export const ctrlDeleteTask = async (req, res) => {
+    const { id } = req.params
+    try {
+        const taskDeleted = await TaskModel.destroy({
+            where: {
+                id: id
+            }
+        })
+        if (!taskDeleted) {
+            return res.status(404).json({
+                message: 'Tarea no encontrada'
+            })
+        }
+        return res.status(200).json({
+            message: 'Tarea eliminada'
+        })
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            message: 'Error Server'
+        })
+    }
+}

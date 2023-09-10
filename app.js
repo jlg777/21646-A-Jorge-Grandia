@@ -4,6 +4,9 @@ import { startDb } from './src/config/database.js';
 
 const app = express();
 
+//middlewares
+app.use(express.json())
+
 const port = 3000;
 
 app.use('/', taskRouter);
