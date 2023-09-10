@@ -1,4 +1,5 @@
 import express from 'express';
+import { taskRouter } from './src/routes/task.routes.js';
 
 const app = express();
 
