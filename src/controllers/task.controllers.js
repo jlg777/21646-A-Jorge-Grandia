@@ -1,3 +1,4 @@
+import { TaskModel } from "../models/Task"
 
 //controlador para traer todas las tareas
 export const ctrlGetTasks = async (req, res) => {}
