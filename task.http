@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
     "title": "cuarta Tarea",
-    "description": 1,
+    "description": "1",
     "poster": "https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
 }
 
