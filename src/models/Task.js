@@ -14,7 +14,7 @@ export const TaskModel = sequelize.define('Task', {
     poster: {
         type: DataTypes.STRING,
         allowNull: true
-    }
+    },
 }, {
     timestamps: true
 })

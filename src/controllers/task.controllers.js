@@ -1,5 +1,20 @@
 import { TaskModel } from "../models/Task.js"
 
+// controlador para mostrar la vista
+export const ctrlView = async (req, res) => {
+    try {
+        const tasks = await TaskModel.findAll();
+        res.render('index.ejs', {tasks})
+
+
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            message: 'Error Server'
+        })
+    }
+}
+
 //controlador para traer todas las tareas
 export const ctrlGetTasks = async (req, res) => {
     try {
@@ -27,6 +42,22 @@ export const ctrlCreateTask = async (req, res) => {
         })
     }
 }
+
+
+
+//controlador para crear una tarea
+export const ctrlCreateView = async (req, res) => {
+    try {
+        const newTasks = await TaskModel.create(req.body)
+        res.render('index.ejs', {newTasks})
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            message: 'Error Server'
+        })
+    }
+}
+
 
 //controlador para modificar una tarea
 export const ctrlUpdateTask = async (req, res) => {
