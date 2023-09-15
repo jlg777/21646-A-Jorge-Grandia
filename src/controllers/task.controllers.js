@@ -18,9 +18,10 @@ export const ctrlView = async (req, res) => {
 //controlador para traer todas las tareas
 export const ctrlGetTasks = async (req, res) => {
     try {
+       
         const task = await TaskModel.findAll();
         if (!task) return res.status(404)
-        return res.status(200).json(task)
+        return res.status(200).render('foro.ejs',{task});
 
     } catch (error) {
         console.error(error)
@@ -30,11 +31,12 @@ export const ctrlGetTasks = async (req, res) => {
     }
 }
 
-//controlador para crear una tarea
+
 export const ctrlCreateTask = async (req, res) => {
     try {
-        const newTask = await TaskModel.create(req.body)
-        return res.status(201).json(newTask)
+         await res.render('crear.ejs')
+
+
     } catch (error) {
         console.error(error)
         return res.status(500).json({
@@ -45,18 +47,22 @@ export const ctrlCreateTask = async (req, res) => {
 
 
 
-//controlador para crear una tarea
-export const ctrlCreateView = async (req, res) => {
-    try {
-        const newTasks = await TaskModel.create(req.body)
-        res.render('index.ejs', {newTasks})
-    } catch (error) {
-        console.error(error)
-        return res.status(500).json({
-            message: 'Error Server'
-        })
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //controlador para modificar una tarea

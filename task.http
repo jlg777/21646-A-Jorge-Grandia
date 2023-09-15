@@ -1,8 +1,8 @@
 ### TRAER TAREAS
-GET http://localhost:3000/api/tasks
+GET http://localhost:3000/
 
 ### CREAR TAREA
-POST http://localhost:3000/api/tasks
+POST http://localhost:3000/crear
 Content-Type: application/json
 
 {
