@@ -61,7 +61,7 @@ El mismo consiste en un Foro Personalizado en entorno individual y aislado, para
 ## 🛠️ Otros:
 
 <img src="https://w7.pngwing.com/pngs/952/732/png-transparent-xampp-full-logo-tech-companies.png" alt="" width="40" height="40"/> </a>
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/PhpMyAdmin_logo.svg/2560px-PhpMyAdmin_logo.svg.png" alt="" width="40" height="40"/> </a>
 
 ## ⚡ Socials:
 <img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png" alt="" width="40" height="40"/> </a>
