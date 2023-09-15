@@ -4,7 +4,7 @@ import { TaskModel } from "../models/Task.js"
 export const ctrlView = async (req, res) => {
     try {
         const tasks = await TaskModel.findAll();
-        res.render('index.ejs', {tasks})
+        res.render('inde.ejs')
 
 
     } catch (error) {

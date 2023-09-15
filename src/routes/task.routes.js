@@ -6,7 +6,7 @@ import { validator } from "../middleares/validator.js";
 const taskRouter = Router();
 
 //RUTA PARA LA VISTA
-taskRouter.get('/tasks', ctrlView)
+taskRouter.get('/', ctrlView)
 
 // endpoint para traer todas las tareas
 taskRouter.get('/api/tasks',ctrlGetTasks)
