@@ -31,10 +31,23 @@ export const ctrlGetTasks = async (req, res) => {
     }
 }
 
+export const ctrlViewTask = async (req, res) => {
+    try {
+        await res.status(200).render('crear.ejs')
+
+
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            message: 'Error Server'
+        })
+    }
+}
 
 export const ctrlCreateTask = async (req, res) => {
     try {
-         await res.render('crear.ejs')
+        const newTask = await TaskModel.create(req.body)
+        await res.status(201).json(newTask)
 
 
     } catch (error) {

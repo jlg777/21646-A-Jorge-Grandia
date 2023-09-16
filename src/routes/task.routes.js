@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ctrlCreateTask, ctrlDeleteTask, ctrlGetTasks, ctrlUpdateTask, ctrlView } from "../controllers/task.controllers.js";
+import { ctrlCreateTask, ctrlDeleteTask, ctrlGetTasks, ctrlUpdateTask, ctrlView, ctrlViewTask } from "../controllers/task.controllers.js";
 import { createTaskSchema } from "../models/schema/task.schema.js";
 import { validator } from "../middleares/validator.js";
 
@@ -12,7 +12,10 @@ taskRouter.get('/', ctrlView)
 taskRouter.get('/task',ctrlGetTasks)
 
 // endpoint para crear una tarea
-taskRouter.get('/crear', ctrlCreateTask)
+taskRouter.get('/crear', ctrlViewTask)
+
+// endpoint para crear una tarea
+taskRouter.post('/crear', ctrlCreateTask)
 
 // endpoint para crear una tarea
 //taskRouter.post('/api/tasks', createTaskSchema, validator,ctrlCreateTask)

@@ -25,7 +25,7 @@ form.addEventListener("submit", (event) => {
   const newTask = {
     title: inputTitle.value,
     description: inputDescription.value,
-    //poster: inputPoster.value,
+    poster: 'https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg',
   };
 
   console.log(newTask)
@@ -42,7 +42,7 @@ form.addEventListener("submit", (event) => {
         if (res.ok) {
           alert("Task created successfully");
           document.getElementById("formulario").reset();
-         
+          location.reload();
         }
       })
       .catch((err) => {
