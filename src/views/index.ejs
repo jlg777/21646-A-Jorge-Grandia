@@ -23,7 +23,7 @@
                                     Creado: <%= task.createdAt %>
                                 </p>
                                 <p class="card-text">
-                                    Editado: <%= task.updatedAt %>
+                                    <%= (task.updatedAt).toLocaleString() %>
                                 </p>
                                 <div>
                                     <button class="btn btn-secondary" id="btn-edit">Edit</button>
