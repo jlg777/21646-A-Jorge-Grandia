@@ -16,10 +16,49 @@
                 <img src="<%= task.poster %>" class="card-img-top" alt="...">
               </div>
             </div>
+            <div class="position-absolute bottom-0 end-0">
+              <button type="button" class="btn btn-primary" id="btn-edit">Editar</button>
+            </div>
             </div>
             </div>
         <% }) %>
             </div>
         </div>
+
+
+
+        <!-- modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">TASK</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="formulario">
+                          <div class="mb-3">
+                              <label for="inputTitle" class="col-form-label">Title:</label>
+                              <input type="text" class="form-control" id="inputTitle">
+                          </div>
+                          <div class="mb-3">
+                              <label for="inputDescription" class="col-form-label">Description:</label>
+                              <input type="text" class="form-control" id="inputDescription">
+                          </div>
+                          <div class="mb-3">
+                              <label for="inputPoster" class="col-form-label">PosterURL:</label>
+                              <input type="url" class="form-control" id="inputPoster">
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary" id="btn-save">Modificar</button>
+                              <button type="button" class="btn btn-danger" id="btn-delete">Eliminar</button>
+                          </div>
+                      </form>
+                  </div>
+
+              </div>
+          </div>
+      </div>
 
 <%- include("partials/footer") -%>

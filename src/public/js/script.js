@@ -14,6 +14,9 @@ const cambiarTheme = ( ) =>{
 
 
 const form = document.getElementById("formulario");
+const btnCrear = document.getElementById("btn-edit");
+
+
 
 const inputTitle = document.getElementById("inputTitle");
 const inputDescription = document.getElementById("inputDescription");
@@ -27,9 +30,6 @@ form.addEventListener("submit", (event) => {
     description: inputDescription.value,
     poster: 'https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg',
   };
-
-  console.log(newTask)
-
   fetch('http://localhost:3000/crear', {
       method: 'POST',
       headers: {
@@ -49,4 +49,26 @@ form.addEventListener("submit", (event) => {
         console.error(err);
       });
 
+})
+
+btnCrear.addEventListener("click", () => {
+  const myModal = new bootstrap.Modal(document.getElementById("myModal"));
+  myModal.show();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.matches('#btn-delete')) {
+        const article = event.target.closest('.col-4')
+        const idArticle = article.dataset.id
+
+        fetch(`http://localhost:3000/tasks/${idArticle}`, {
+            method: 'DELETE'
+        }).then(res => {
+            if (res.ok) {
+                article.remove()
+            }
+        }).catch(err => {
+            console.error(err)
+        })
+    }
 })

@@ -25,6 +25,6 @@ taskRouter.post('/crear', ctrlCreateTask)
 taskRouter.put('/api/tasks/:id',ctrlUpdateTask)
 
 // endpoint para eliminar una tarea
-taskRouter.delete('/api/tasks/:id',ctrlDeleteTask)
+taskRouter.delete('/crear/:id',ctrlDeleteTask)
 
 export { taskRouter }
