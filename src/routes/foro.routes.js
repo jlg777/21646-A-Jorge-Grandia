@@ -3,28 +3,28 @@ import { ctrlCreateTask, ctrlDeleteTask, ctrlGetTasks, ctrlUpdateTask, ctrlView,
 import { createTaskSchema } from "../models/schema/task.schema.js";
 import { validator } from "../middleares/validator.js";
 
-const taskRouter = Router();
+const foroRouter = Router();
 
 //RUTA PARA LA VISTA
-taskRouter.get('/', ctrlView)
+foroRouter.get('/', ctrlView)
 
 // endpoint para traer todas las tareas
-taskRouter.get('/task',ctrlGetTasks)
+foroRouter.get('/foros',ctrlGetTasks)
 
 // endpoint para crear una tarea
-taskRouter.get('/crear', ctrlViewTask)
+foroRouter.get('/foros', ctrlViewTask)
 
 // endpoint para crear una tarea
-taskRouter.post('/crear', ctrlCreateTask)
+foroRouter.post('/crear', ctrlCreateTask)
 
 // endpoint para crear una tarea
 //taskRouter.post('/api/tasks', createTaskSchema, validator,ctrlCreateTask)
 
 
 // endpoint para modificar una tarea
-taskRouter.put('/api/tasks/:id',ctrlUpdateTask)
+foroRouter.put('/api/tasks/:id',ctrlUpdateTask)
 
 // endpoint para eliminar una tarea
-taskRouter.delete('/crear/:id',ctrlDeleteTask)
+foroRouter.delete('/foros/:id',ctrlDeleteTask)
 
-export { taskRouter }
+export { foroRouter }

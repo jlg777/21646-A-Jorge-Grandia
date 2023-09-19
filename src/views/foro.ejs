@@ -1,64 +1,68 @@
 <%- include('partials/header') -%>
 
+<main class="d-flex flex-column align-items-center">
+    <button type="button" class="btn btn-primary" id="btn-new">NUEVO FORO</button>
+</main>
+
 <div class="container text-center">
     <div class="row" id="container-row">
-        <% task.forEach(task=> { %>  
-  
-            <div class="m-0 row vh-100 justify-content-center align-items-center" data-id="<%= task.id %>">
-            <div class="card">
-            <div class="card-header">
-              Destacado
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= task.title %></h5>
-              <p class="card-text"><%= task.description %></p>
-              <div class="card" style="width: 18rem;">
-                <img src="<%= task.poster %>" class="card-img-top" alt="...">
-              </div>
-            </div>
-            <div class="position-absolute bottom-0 end-0">
-              <button type="button" class="btn btn-primary" id="btn-edit">Editar</button>
-            </div>
-            </div>
-            </div>
-        <% }) %>
-            </div>
-        </div>
+        <% foro.forEach(foro=> { %>
+
+            <article class="col-4 d-flex justify-content-center mb-3" data-id="<%= foro.id %>">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= foro.poster %>" class="card-img-top" alt="nuevo titulo">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= foro.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= foro.description %>
+                        </p>
+                        <div>
+                            <button class="btn btn-secondary" id="btn-edit">Edit</button>
+                            <button type="" class="btn btn-danger" id="btn-delete">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <% }) %>
+    </div>
+</div>
 
 
 
         <!-- modal -->
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">TASK</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                      <form id="formulario">
-                          <div class="mb-3">
-                              <label for="inputTitle" class="col-form-label">Title:</label>
-                              <input type="text" class="form-control" id="inputTitle">
-                          </div>
-                          <div class="mb-3">
-                              <label for="inputDescription" class="col-form-label">Description:</label>
-                              <input type="text" class="form-control" id="inputDescription">
-                          </div>
-                          <div class="mb-3">
-                              <label for="inputPoster" class="col-form-label">PosterURL:</label>
-                              <input type="url" class="form-control" id="inputPoster">
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" id="btn-save">Modificar</button>
-                              <button type="button" class="btn btn-danger" id="btn-delete">Eliminar</button>
-                          </div>
-                      </form>
-                  </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">TASK</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formulario">
+                            <div class="mb-3">
+                                <label for="inputTitle" class="col-form-label">Title:</label>
+                                <input type="text" class="form-control" id="inputTitle">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputDescription" class="col-form-label">Description:</label>
+                                <input type="text" class="form-control" id="inputDescription">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputPoster" class="col-form-label">PosterURL:</label>
+                                <input type="url" class="form-control" id="inputPoster">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="btn-save"></button>
+                            </div>
+                        </form>
+                    </div>
 
-              </div>
-          </div>
-      </div>
+                </div>
+            </div>
+        </div>
 
 <%- include("partials/footer") -%>

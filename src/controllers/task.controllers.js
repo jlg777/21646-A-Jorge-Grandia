@@ -1,4 +1,4 @@
-import { TaskModel } from "../models/Task.js"
+import { TaskModel } from "../models/Foro.js"
 
 // controlador para mostrar la vista
 export const ctrlView = async (req, res) => {
@@ -19,9 +19,9 @@ export const ctrlView = async (req, res) => {
 export const ctrlGetTasks = async (req, res) => {
     try {
        
-        const task = await TaskModel.findAll();
-        if (!task) return res.status(404)
-        return res.status(200).render('foro.ejs',{task});
+        const foro = await TaskModel.findAll();
+        if (!foro) return res.status(404)
+        return res.status(200).render('foro.ejs',{foro});
 
     } catch (error) {
         console.error(error)

@@ -12,63 +12,75 @@ const cambiarTheme = ( ) =>{
 }
 
 
-
+const contenedor = document.getElementById("container-row");
+const btnCrear = document.getElementById("btn-new");
+const myModal = new bootstrap.Modal(document.getElementById("myModal"));
+const btnSave = document.getElementById("btn-save");
 const form = document.getElementById("formulario");
-const btnCrear = document.getElementById("btn-edit");
 
-
+let html = "";
+let option = "";
+let idForm = "";
 
 const inputTitle = document.getElementById("inputTitle");
 const inputDescription = document.getElementById("inputDescription");
-const inputPoster = 'https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg';
+const inputPoster = document.getElementById("inputPoster");
+
+btnCrear.addEventListener("click", () => {
+  option = "new";
+  btnSave.textContent = "new";
+  inputTitle.value = "";
+  inputDescription.value = "";
+  inputPoster.value = "";
+  myModal.show();
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  // console.log("submit");
 
-  const newTask = {
-    title: inputTitle.value,
-    description: inputDescription.value,
-    poster: 'https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg',
-  };
-  fetch('http://localhost:3000/crear', {
+  if (option === "new") {
+    const newTask = {
+      title: inputTitle.value,
+      description: inputDescription.value,
+      poster: inputPoster.value,
+    };
+
+    fetch('http://localhost:3000/crear', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newTask)
-    })
-    .then(res => {
+    }).then(res => {
       console.log(res)
         if (res.ok) {
           alert("Task created successfully");
-          document.getElementById("formulario").reset();
+          myModal.hide();
           location.reload();
         }
       })
       .catch((err) => {
         console.error(err);
       });
+  }
 
-})
+ 
+});
 
-btnCrear.addEventListener("click", () => {
-  const myModal = new bootstrap.Modal(document.getElementById("myModal"));
-  myModal.show();
-  });
+document.addEventListener('click', (event) => {
+  if (event.target.matches('#btn-delete')) {
+      const article = event.target.closest('.col-4')
+      const idArticle = article.dataset.id
 
-  document.addEventListener('click', (event) => {
-    if (event.target.matches('#btn-delete')) {
-        const article = event.target.closest('.col-4')
-        const idArticle = article.dataset.id
-
-        fetch(`http://localhost:3000/tasks/${idArticle}`, {
-            method: 'DELETE'
-        }).then(res => {
-            if (res.ok) {
-                article.remove()
-            }
-        }).catch(err => {
-            console.error(err)
-        })
-    }
+      fetch(`http://localhost:3000/foros/${idArticle}`, {
+          method: 'DELETE'
+      }).then(res => {
+          if (res.ok) {
+              article.remove()
+          }
+      }).catch(err => {
+          console.error(err)
+      })
+  }
 })
