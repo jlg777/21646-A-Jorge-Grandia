@@ -65,7 +65,27 @@ form.addEventListener("submit", (event) => {
       });
   }
 
- 
+  if (option === "edit") {
+    const newTask = {
+      title: inputTitle.value,
+      description: inputDescription.value,
+      poster: inputPoster.value,
+    };
+
+    fetch(`http://localhost:3000/api/tasks/${idForm}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newTask)
+    }).then(res => {
+      if(res.ok){
+        alert('Task edited successfully')
+        myModal.hide();
+        location.reload();
+      }
+    })
+  }
 });
 
 document.addEventListener('click', (event) => {
@@ -84,3 +104,23 @@ document.addEventListener('click', (event) => {
       })
   }
 })
+
+document.addEventListener("click", (event) => {
+  if (event.target.matches("#btn-edit")) {
+    const article = event.target.closest(".col-4");
+
+    const idArticle = article.dataset.id;
+    const urlPosterEdit = article.children[0].children[0].src;
+    const titleEdit = article.children[0].children[1].children[0].textContent;
+    const descriptionEdit =
+      article.children[0].children[1].children[1].textContent;
+
+    idForm = idArticle;
+    inputTitle.value = titleEdit;
+    inputDescription.value = descriptionEdit;
+    inputPoster.value = urlPosterEdit;
+    option = "edit";
+    btnSave.textContent = "Edit";
+    myModal.show();
+  }
+});
