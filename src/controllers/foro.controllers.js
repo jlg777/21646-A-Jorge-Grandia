@@ -16,7 +16,7 @@ export const ctrlView = async (req, res) => {
 }
 
 //controlador para traer todas las tareas
-export const ctrlGetTasks = async (req, res) => {
+export const ctrlGetForos = async (req, res) => {
     try {
        
         const foro = await TaskModel.findAll();
@@ -31,20 +31,8 @@ export const ctrlGetTasks = async (req, res) => {
     }
 }
 
-export const ctrlViewTask = async (req, res) => {
-    try {
-        await res.status(200).render('crear.ejs')
 
-
-    } catch (error) {
-        console.error(error)
-        return res.status(500).json({
-            message: 'Error Server'
-        })
-    }
-}
-
-export const ctrlCreateTask = async (req, res) => {
+export const ctrlCreateForos = async (req, res) => {
     try {
         const newTask = await TaskModel.create(req.body)
         await res.status(201).json(newTask)
@@ -57,26 +45,6 @@ export const ctrlCreateTask = async (req, res) => {
         })
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //controlador para modificar una tarea
 export const ctrlUpdateTask = async (req, res) => {
@@ -102,7 +70,7 @@ export const ctrlUpdateTask = async (req, res) => {
 }
 
 //controlador para eliminar una tarea
-export const ctrlDeleteTask = async (req, res) => {
+export const ctrlDeleteForo = async (req, res) => {
     const { id } = req.params
     try {
         const taskDeleted = await TaskModel.destroy({

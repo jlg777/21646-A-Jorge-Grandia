@@ -46,7 +46,7 @@ form.addEventListener("submit", (event) => {
       poster: inputPoster.value,
     };
 
-    fetch('http://localhost:3000/crear', {
+    fetch('http://localhost:3000/foros', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
