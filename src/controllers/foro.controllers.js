@@ -47,7 +47,7 @@ export const ctrlCreateForos = async (req, res) => {
 }
 
 //controlador para modificar una tarea
-export const ctrlUpdateTask = async (req, res) => {
+export const ctrlUpdateForos = async (req, res) => {
     const { id } = req.params
     try {
         const task = await TaskModel.findByPk(id);

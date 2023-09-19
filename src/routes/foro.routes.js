@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ctrlCreateForos, ctrlDeleteForo, ctrlGetForos, ctrlUpdateTask, ctrlView } from "../controllers/foro.controllers.js";
+import { ctrlCreateForos, ctrlDeleteForo, ctrlGetForos, ctrlUpdateForos, ctrlView } from "../controllers/foro.controllers.js";
 import { createTaskSchema } from "../models/schema/task.schema.js";
 import { validator } from "../middleares/validator.js";
 
@@ -15,7 +15,7 @@ foroRouter.get('/foros',ctrlGetForos)
 foroRouter.post('/foros', ctrlCreateForos)
 
 // endpoint para modificar una tarea
-foroRouter.put('/api/tasks/:id',ctrlUpdateTask)
+foroRouter.put('/api/tasks/:id',ctrlUpdateForos)
 
 // endpoint para eliminar una tarea
 foroRouter.delete('/foros/:id',ctrlDeleteForo)
