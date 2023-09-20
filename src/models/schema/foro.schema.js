@@ -1,6 +1,6 @@
 import { body } from "express-validator"
 
-export const createTaskSchema = [
+export const createForoSchema = [
     body('title')
         .isString().withMessage('Debe ser string')
         .notEmpty().withMessage('No debe ser vacio'),
@@ -12,7 +12,7 @@ export const createTaskSchema = [
         .notEmpty().withMessage('No debe ser vacio'),
 ]
 
-export const editTaskSchema = [
+export const editForoSchema = [
     body('title')
         .optional()
         .isString().withMessage('Debe ser string')

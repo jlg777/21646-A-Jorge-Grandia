@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { ctrlCreateForos, ctrlDeleteForo, ctrlGetForos, ctrlUpdateForos, ctrlView } from "../controllers/foro.controllers.js";
-import { createTaskSchema } from "../models/schema/task.schema.js";
+import { createForoSchema, editForoSchema } from "../models/schema/foro.schema.js";
 import { validator } from "../middleares/validator.js";
 
 const foroRouter = Router();

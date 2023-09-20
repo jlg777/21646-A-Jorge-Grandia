@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
 
 
-export const TaskModel = sequelize.define('Task', {
+export const TaskModel = sequelize.define('Foro', {
     title: {
         type: DataTypes.STRING,
         allowNull: true
