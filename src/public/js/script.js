@@ -55,7 +55,7 @@ form.addEventListener("submit", (event) => {
     }).then(res => {
       console.log(res)
         if (res.ok) {
-          alert("Task created successfully");
+          alert("Foro creado exitosamente");
           myModal.hide();
           location.reload();
         }
@@ -72,7 +72,7 @@ form.addEventListener("submit", (event) => {
       poster: inputPoster.value,
     };
 
-    fetch(`http://localhost:3000/api/tasks/${idForm}`, {
+    fetch(`http://localhost:3000/foros/${idForm}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ form.addEventListener("submit", (event) => {
       body: JSON.stringify(newTask)
     }).then(res => {
       if(res.ok){
-        alert('Task edited successfully')
+        alert('Foro modificado exitosamente')
         myModal.hide();
         location.reload();
       }

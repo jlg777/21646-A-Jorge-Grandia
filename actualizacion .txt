@@ -1,0 +1,12 @@
+Modificaciones de la version 1.0 a 1.1.
+- Se modifico la tematica del trabajo por un foro multitematico en vez de una lista de tareas.
+- Se modifico el archivo .gitignore dandole un mejor formato.
+- Se modifico el README.md dandole una mejor vista, se utilizo 'Markdown' para describir el funcionanmiento del proyecto y todas las tecnologias utilizadas.
+- Se modificaron las rutas. foro.routes.js
+- Se modificaron las vistas, se creo un nuevo index y otras vistas con boobstrap.
+- Se le agregaron funciones adicionales como 'Modo Oscuro'
+- Se agrego una nueva rama de desarrollo en github 'nuevo_index'
+- a la carpeta 'public' se organizo a la estructura presente (assets, css, js)
+- Se modifico en la carpeta models/schema el sequalize para generar una nueba DB con un nombre acorde al proyecto y se le modificaron los nombres de las constantes de validacion.
+- Se modificaron todos los controllers.
+- Se modifico en script.js deacuerdo a lo solicitado.

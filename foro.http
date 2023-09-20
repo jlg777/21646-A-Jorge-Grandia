@@ -6,10 +6,12 @@ POST http://localhost:3000/foros
 Content-Type: application/json
 
 {
-    "title": "agregada",
-    "description": "1ultima llamada",
-    "poster": "https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
+  "title": "Problema de seguridad en formulario de inicio de sesión",
+  "description": "Tengo preocupaciones sobre la seguridad en el formulario de inicio de sesión de mi sitio web. ¿Pueden ayudarme a identificar y solucionar posibles vulnerabilidades?",
+  "poster_url": "https://ejemplo.com/imagen-problema10.jpg"
 }
+
+
 
 ### MODIFICAR TAREA
 PUT http://localhost:3000/3

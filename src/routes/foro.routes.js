@@ -15,7 +15,7 @@ foroRouter.get('/foros',ctrlGetForos)
 foroRouter.post('/foros', ctrlCreateForos)
 
 // endpoint para modificar una tarea
-foroRouter.put('/api/tasks/:id',ctrlUpdateForos)
+foroRouter.put('/foros/:id',ctrlUpdateForos)
 
 // endpoint para eliminar una tarea
 foroRouter.delete('/foros/:id',ctrlDeleteForo)

@@ -1,9 +1,9 @@
-import { TaskModel } from "../models/Foro.js"
+import { ForoModel } from "../models/Foro.js"
 
 // controlador para mostrar la vista
 export const ctrlView = async (req, res) => {
     try {
-        const tasks = await TaskModel.findAll();
+        const foro = await ForoModel.findAll();
         res.render('inde.ejs')
 
 
@@ -19,7 +19,7 @@ export const ctrlView = async (req, res) => {
 export const ctrlGetForos = async (req, res) => {
     try {
        
-        const foro = await TaskModel.findAll();
+        const foro = await ForoModel.findAll();
         if (!foro) return res.status(404)
         return res.status(200).render('foro.ejs',{foro});
 
@@ -34,8 +34,8 @@ export const ctrlGetForos = async (req, res) => {
 
 export const ctrlCreateForos = async (req, res) => {
     try {
-        const newTask = await TaskModel.create(req.body)
-        await res.status(201).json(newTask)
+        const newForo = await ForoModel.create(req.body)
+        await res.status(201).json(newForo)
 
 
     } catch (error) {
@@ -50,17 +50,17 @@ export const ctrlCreateForos = async (req, res) => {
 export const ctrlUpdateForos = async (req, res) => {
     const { id } = req.params
     try {
-        const task = await TaskModel.findByPk(id);
+        const foro = await ForoModel.findByPk(id);
 
-        if (!task) {
+        if (!foro) {
             return res.status(404).json({
-                message: 'Tarea no encontrada'
+                message: 'Foro no encontrado'
             })
         }
 
-        await task.update(req.body)
+        await foro.update(req.body)
 
-        return res.status(200).json(task)
+        return res.status(200).json(foro)
     } catch (error) {
         console.error(error)
         return res.status(500).json({
@@ -73,18 +73,18 @@ export const ctrlUpdateForos = async (req, res) => {
 export const ctrlDeleteForo = async (req, res) => {
     const { id } = req.params
     try {
-        const taskDeleted = await TaskModel.destroy({
+        const foroDeleted = await ForoModel.destroy({
             where: {
                 id: id
             }
         })
-        if (!taskDeleted) {
+        if (!foroDeleted) {
             return res.status(404).json({
-                message: 'Tarea no encontrada'
+                message: 'Foro no encontrado'
             })
         }
         return res.status(200).json({
-            message: 'Tarea eliminada'
+            message: 'Foro eliminado'
         })
     } catch (error) {
         console.error(error)
