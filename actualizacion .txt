@@ -10,3 +10,4 @@ Modificaciones de la version 1.0 a 1.1.
 - Se modifico en la carpeta models/schema el sequalize para generar una nueba DB con un nombre acorde al proyecto y se le modificaron los nombres de las constantes de validacion.
 - Se modificaron todos los controllers.
 - Se modifico en script.js deacuerdo a lo solicitado.
+- https://github.com/jlg777/21646-A-Jorge-Grandia/tree/nuevo_index
